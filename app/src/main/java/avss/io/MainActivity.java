@@ -81,6 +81,47 @@ MainFragment.onFragmentBtnSelected, SetPhoneNumber.saveNumber{
 
         }
 
+        if (menuItem.getItemId() == R.id.userManual){
+
+            changeFragment(new UserManual());
+        }
+
+        if (menuItem.getItemId() ==R.id.helpLine){
+
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:01789025020"));
+            startActivity(callIntent);
+        }
+
+        if (menuItem.getItemId()==R.id.website){
+
+            String url = "http://www.maktro.com";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+
+
+        if (menuItem.getItemId()==R.id.facebook){
+
+            String url = "http://www.fb.com/maktrocom";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+
+
+        if (menuItem.getItemId()==R.id.playstore){
+
+
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=PackageName")));
+        }
+
+
+
+
+
+
 
         return false;
     }
@@ -95,17 +136,27 @@ MainFragment.onFragmentBtnSelected, SetPhoneNumber.saveNumber{
     }
 
     @Override
-    public void onButtonSelected(String name) {
+    public void onButtonSelected(String acdc) {
 
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
 
+
+
       String  text = sharedPreferences.getString(ADMIN_PHONE, "");
 
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + text));
-        intent.putExtra("sms_body", "Lock");
-        startActivity(intent);
+      if (text.length() ==0){
+          Toast.makeText(this, "Please Set Device Number First", Toast.LENGTH_LONG).show();
+          changeFragment(new SetPhoneNumber());
+      }
+      else {
+
+
+          Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + text));
+          intent.putExtra("sms_body", acdc);
+          startActivity(intent);
+      }
 
 //        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }

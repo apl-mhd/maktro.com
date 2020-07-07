@@ -12,7 +12,7 @@
 
             <item
                 android:id="@+id/acdc"
-                android:icon="@drawable/ic_settings_black_24dp"
+                android:icon="@drawable/ic_lock_open_black_24dp"
                 android:title="Active/ Deactive" />
         </menu>
     </item>
@@ -25,10 +25,7 @@
                 android:id="@+id/userManual"
                 android:icon="@drawable/ic_settings_black_24dp"
                 android:title="User Manual" />
-            <item
-                android:id="@+id/aboutUs"
-                android:icon="@drawable/ic_account_balance_black_24dp"
-                android:title="About Us" />
+
 
             <item
                 android:id="@+id/helpLine"
@@ -40,15 +37,15 @@
 
     </item>
 
-    <item android:title="Contact">
+    <item android:title="Website">
         <menu>
             <item
-                android:id="@+id/Facebook"
+                android:id="@+id/facebook"
                 android:icon="@drawable/ic_android_black_24dp"
                 android:title="Facebook" />
 
             <item
-                android:id="@+id/Website"
+                android:id="@+id/website"
                 android:icon="@drawable/ic_web_black_24dp"
                 android:title="Website" />
 
@@ -61,7 +58,7 @@
     <item android:title="Rate us">
         <menu>
             <item
-                android:id="@+id/rateus"
+                android:id="@+id/playstore"
                 android:icon="@drawable/ic_android_black_24dp"
                 android:title="Play Store" />
 

@@ -36,8 +36,7 @@ public class MainFragment extends Fragment  {
             public void onClick(View v) {
 
                 button = view.findViewById(R.id.lock);
-                String a = button.getText().toString();
-                listener.onButtonSelected(a);
+                listener.onButtonSelected("12341#");
 
 
             }
@@ -49,8 +48,7 @@ public class MainFragment extends Fragment  {
 
 
                 button = view.findViewById(R.id.unlock);
-                String a = button.getText().toString();
-                listener.onButtonSelected(a);
+                listener.onButtonSelected("12340#");
 
 //                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + a));
 //                intent.putExtra("sms_body", "Unlock");

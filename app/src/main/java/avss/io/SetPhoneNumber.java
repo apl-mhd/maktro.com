@@ -80,7 +80,7 @@ public class SetPhoneNumber extends Fragment {
             public void onClick(View v) {
                 String phone = editTextAdmin1.getText().toString();
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
-                intent.putExtra("sms_body", "I'm sending this through an Intent");
+                intent.putExtra("sms_body", "123431"+phone+"#");
                 startActivity(intent);
 
             }
@@ -92,7 +92,7 @@ public class SetPhoneNumber extends Fragment {
             public void onClick(View v) {
                 String phone = editTextAdmin2.getText().toString();
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
-                intent.putExtra("sms_body", "I'm sending this through an Intent");
+                intent.putExtra("sms_body", "123432"+phone+"#");
                 startActivity(intent);
 
             }
@@ -104,7 +104,7 @@ public class SetPhoneNumber extends Fragment {
             public void onClick(View v) {
                 String phone = editTextAdmin3.getText().toString();
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
-                intent.putExtra("sms_body", "I'm sending this through an Intent");
+                intent.putExtra("sms_body", "123433"+phone+"#");
                 startActivity(intent);
 
             }
