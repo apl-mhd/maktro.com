@@ -10,6 +10,10 @@
                 android:icon="@drawable/ic_settings_black_24dp"
                 android:title="Set Phone number" />
 
+            <item
+                android:id="@+id/acdc"
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:title="Active/ Deactive" />
         </menu>
     </item>
 

@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -53,12 +56,10 @@ MainFragment.onFragmentBtnSelected, SetPhoneNumber.saveNumber{
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
 
-        //load deafulte fragment
 
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container_fragment, new MainFragment());
-
         fragmentTransaction.commit();
 
 
@@ -71,19 +72,26 @@ MainFragment.onFragmentBtnSelected, SetPhoneNumber.saveNumber{
         drawerLayout.closeDrawer(GravityCompat.START);
 
         if (menuItem.getItemId() == R.id.setting){
+            changeFragment(new SetPhoneNumber());
 
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new SetPhoneNumber());
-            fragmentTransaction.commit();
+        }
+
+        if (menuItem.getItemId() == R.id.acdc){
+            changeFragment(new MainFragment());
 
         }
 
 
-
-
-
         return false;
+    }
+
+
+    public  void changeFragment(Fragment fragment){
+
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.container_fragment, fragment).addToBackStack(null).commit();
+
+
     }
 
     @Override
@@ -95,11 +103,15 @@ MainFragment.onFragmentBtnSelected, SetPhoneNumber.saveNumber{
 
       String  text = sharedPreferences.getString(ADMIN_PHONE, "");
 
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + text));
+        intent.putExtra("sms_body", "Lock");
+        startActivity(intent);
+
+//        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void save(String phoneNumber) {
+    public void saveAdmin(String phoneNumber) {
 
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -107,6 +119,6 @@ MainFragment.onFragmentBtnSelected, SetPhoneNumber.saveNumber{
         editor.putString(ADMIN_PHONE, phoneNumber);
         editor.apply();
 
-        Toast.makeText(this, phoneNumber, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Device Number Saved", Toast.LENGTH_SHORT).show();
     }
 }

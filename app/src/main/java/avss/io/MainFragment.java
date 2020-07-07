@@ -1,7 +1,9 @@
 package avss.io;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,22 +28,33 @@ public class MainFragment extends Fragment  {
         final View view =  inflater.inflate(R.layout.fragment_main, container, false);
 
 
-        Button lock = view.findViewById(R.id.lock);
+        Button active = view.findViewById(R.id.lock);
+        Button deActive = view.findViewById(R.id.unlock);
 
-        lock.setOnClickListener(new View.OnClickListener() {
+        active.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                button = view.findViewById(R.id.lock);
+                String a = button.getText().toString();
+                listener.onButtonSelected(a);
+
+
+            }
+        });
+
+        deActive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                button = view.findViewById(R.id.lock);
-
+                button = view.findViewById(R.id.unlock);
                 String a = button.getText().toString();
-
                 listener.onButtonSelected(a);
 
-
-
-
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + a));
+//                intent.putExtra("sms_body", "Unlock");
+//                startActivity(intent);
 
             }
         });

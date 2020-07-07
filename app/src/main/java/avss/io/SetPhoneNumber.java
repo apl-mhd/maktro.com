@@ -1,7 +1,9 @@
 package avss.io;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,12 +28,10 @@ public class SetPhoneNumber extends Fragment {
     private saveNumber listener;
 
 
-    Button button;
-    private EditText editText;
-    private TextView textView;
+    private Button deviceBtn, adminBtn1, adminBtn2, adminBtn3;
+    private EditText deviceEdit, editTextAdmin1, editTextAdmin2, editTextAdmin3;
 
-    private TextView showNumber;
-    private Button click_adimn;
+
 
 
     public  static final  String SHARED_PREFS = "sharedPrefs";
@@ -46,15 +47,27 @@ public class SetPhoneNumber extends Fragment {
         View view = inflater.inflate(R.layout.set_number, container, false);
 
 
-        button = view.findViewById(R.id.save);
-        editText = view.findViewById(R.id.admin);
+        deviceBtn = view.findViewById(R.id.deviceBtn);
+        deviceEdit = view.findViewById(R.id.deviceEditText);
+
+        adminBtn1 = view.findViewById(R.id.adminBtn1);
+        editTextAdmin1 = view.findViewById(R.id.adminEdit1);
+
+        adminBtn2 = view.findViewById(R.id.adminBtn2);
+        editTextAdmin2 = view.findViewById(R.id.adminEdit1);
+
+        adminBtn3 = view.findViewById(R.id.adminBtn3);
+        editTextAdmin3 = view.findViewById(R.id.adminEdit3);
 
 
-        click_adimn.setOnClickListener(new View.OnClickListener() {
+
+        deviceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                textView.setText("okor");
+                String phone = deviceEdit.getText().toString();
+
+                listener.saveAdmin(phone);
 
 
 
@@ -62,19 +75,41 @@ public class SetPhoneNumber extends Fragment {
             }
         });
 
-
-        button.setOnClickListener(new View.OnClickListener() {
+        adminBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                listener.save(editText.getText().toString());
-
-
-
-
+                String phone = editTextAdmin1.getText().toString();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
+                intent.putExtra("sms_body", "I'm sending this through an Intent");
+                startActivity(intent);
 
             }
         });
+
+
+        adminBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phone = editTextAdmin2.getText().toString();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
+                intent.putExtra("sms_body", "I'm sending this through an Intent");
+                startActivity(intent);
+
+            }
+        });
+
+
+        adminBtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phone = editTextAdmin3.getText().toString();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
+                intent.putExtra("sms_body", "I'm sending this through an Intent");
+                startActivity(intent);
+
+            }
+        });
+
 
 
 
@@ -82,11 +117,6 @@ public class SetPhoneNumber extends Fragment {
         return  view;
     }
 
-
-    public  void a(){
-
-
-    }
 
 
     @Override
@@ -105,6 +135,6 @@ public class SetPhoneNumber extends Fragment {
 
     public  interface  saveNumber{
 
-        public  void  save(String phoneNumber);
+        public  void  saveAdmin(String phoneNumber);
     }
 }
