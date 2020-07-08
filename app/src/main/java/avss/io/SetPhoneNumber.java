@@ -54,7 +54,7 @@ public class SetPhoneNumber extends Fragment {
         editTextAdmin1 = view.findViewById(R.id.adminEdit1);
 
         adminBtn2 = view.findViewById(R.id.adminBtn2);
-        editTextAdmin2 = view.findViewById(R.id.adminEdit1);
+        editTextAdmin2 = view.findViewById(R.id.adminEdit2);
 
         adminBtn3 = view.findViewById(R.id.adminBtn3);
         editTextAdmin3 = view.findViewById(R.id.adminEdit3);

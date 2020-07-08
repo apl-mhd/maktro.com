@@ -31,15 +31,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="25dp"
+        android:gravity="center">
 
 
         <EditText
+
             android:inputType="number"
             android:id="@+id/deviceEditText"
-            android:layout_width="wrap_content"
+            android:layout_width="185dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginRight="30dp"
             android:background="@drawable/input_round"
             android:padding="10dp"
             android:hint="01711                "
@@ -50,7 +52,7 @@
             android:id="@+id/deviceBtn"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+
             android:background="@drawable/btn_bg"
             android:textColor="@color/white"
             android:text="Save" />
@@ -74,15 +76,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="25dp"
+        android:gravity="center">
 
 
         <EditText
+
             android:inputType="number"
             android:id="@+id/adminEdit1"
-            android:layout_width="wrap_content"
+            android:layout_width="185dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginRight="30dp"
             android:background="@drawable/input_round"
             android:padding="10dp"
             android:hint="01711                "
@@ -92,7 +96,6 @@
             android:id="@+id/adminBtn1"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
             android:background="@drawable/btn_bg"
             android:textColor="@color/white"
             android:text="Save" />
@@ -112,19 +115,22 @@
 
         android:textSize="18sp"
         android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="25dp"
+        android:gravity="center">
 
 
         <EditText
+
             android:inputType="number"
             android:id="@+id/adminEdit2"
-            android:layout_width="wrap_content"
+            android:layout_width="185dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginRight="30dp"
             android:background="@drawable/input_round"
             android:padding="10dp"
             android:hint="01711                "
@@ -134,7 +140,7 @@
             android:id="@+id/adminBtn2"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+
             android:background="@drawable/btn_bg"
             android:textColor="@color/white"
             android:text="Save" />
@@ -156,17 +162,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
 
         <EditText
+
             android:inputType="number"
             android:id="@+id/adminEdit3"
-            android:layout_width="wrap_content"
+            android:layout_width="185dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
             android:background="@drawable/input_round"
             android:padding="10dp"
+            android:layout_marginRight="30dp"
             android:hint="01711                "
             android:textDirection="ltr" />
 
@@ -174,7 +182,6 @@
             android:id="@+id/adminBtn3"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
             android:background="@drawable/btn_bg"
             android:textColor="@color/white"
             android:text="Save" />

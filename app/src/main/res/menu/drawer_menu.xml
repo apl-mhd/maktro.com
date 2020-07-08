@@ -5,15 +5,16 @@
 
     <item android:title="Setting">
         <menu>
-            <item
-                android:id="@+id/setting"
-                android:icon="@drawable/ic_settings_black_24dp"
-                android:title="Set Phone number" />
 
             <item
                 android:id="@+id/acdc"
                 android:icon="@drawable/ic_lock_open_black_24dp"
                 android:title="Active/ Deactive" />
+
+            <item
+                android:id="@+id/setting"
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:title="Set Phone number" />
         </menu>
     </item>
 
