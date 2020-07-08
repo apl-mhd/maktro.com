@@ -173,12 +173,50 @@ MainFragment.onFragmentBtnSelected, SetPhoneNumber.saveNumber{
     @Override
     public void saveAdmin(String phoneNumber) {
 
+        if (phoneNumber.length() <11){
+
+            Toast.makeText(this, "Please Enter Device Number Correctly", Toast.LENGTH_SHORT).show();
+
+        }
+        else {
+
+
+            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            editor.putString(ADMIN_PHONE, phoneNumber);
+            editor.apply();
+            Toast.makeText(this, "Device Number Saved", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void sendAdmin(String phoneNumber, String code) {
+
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(ADMIN_PHONE, phoneNumber);
-        editor.apply();
 
-        Toast.makeText(this, "Device Number Saved", Toast.LENGTH_SHORT).show();
+
+
+        String  text = sharedPreferences.getString(ADMIN_PHONE, "");
+
+
+        if (text.length() == 0){
+            Toast.makeText(this, "Set Device Number First", Toast.LENGTH_SHORT).show();
+        }
+        else  if (phoneNumber.length() <11 ){
+            Toast.makeText(this, "Please Enter Device Number Correctly", Toast.LENGTH_SHORT).show();
+        }
+        else{
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + text));
+            intent.putExtra("sms_body", code+phoneNumber+"#");
+            startActivity(intent);
+        }
+
+
     }
+
+
 }

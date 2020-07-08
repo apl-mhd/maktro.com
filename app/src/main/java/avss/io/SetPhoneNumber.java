@@ -78,10 +78,17 @@ public class SetPhoneNumber extends Fragment {
         adminBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
                 String phone = editTextAdmin1.getText().toString();
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
-                intent.putExtra("sms_body", "123431"+phone+"#");
-                startActivity(intent);
+                listener.sendAdmin(phone, "123431");
+                //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
+                //intent.putExtra("sms_body", "123431"+phone+"#");
+                //startActivity(intent);
+
+
 
             }
         });
@@ -90,10 +97,13 @@ public class SetPhoneNumber extends Fragment {
         adminBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 String phone = editTextAdmin2.getText().toString();
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
-                intent.putExtra("sms_body", "123432"+phone+"#");
-                startActivity(intent);
+                listener.sendAdmin(phone, "123432");
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
+//                intent.putExtra("sms_body", "123432"+phone+"#");
+//                startActivity(intent);
 
             }
         });
@@ -102,16 +112,16 @@ public class SetPhoneNumber extends Fragment {
         adminBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String phone = editTextAdmin3.getText().toString();
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
-                intent.putExtra("sms_body", "123433"+phone+"#");
-                startActivity(intent);
+                listener.sendAdmin(phone, "123433");
+//
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phone));
+//                intent.putExtra("sms_body", "123433"+phone+"#");
+//                startActivity(intent);
 
             }
         });
-
-
-
 
 
         return  view;
@@ -136,5 +146,6 @@ public class SetPhoneNumber extends Fragment {
     public  interface  saveNumber{
 
         public  void  saveAdmin(String phoneNumber);
+        public  void  sendAdmin(String phoneNumber, String code);
     }
 }
