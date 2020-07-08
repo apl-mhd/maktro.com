@@ -42,7 +42,7 @@
         <menu>
             <item
                 android:id="@+id/facebook"
-                android:icon="@drawable/ic_android_black_24dp"
+                android:icon="@drawable/ic_icons8_facebook"
                 android:title="Facebook" />
 
             <item

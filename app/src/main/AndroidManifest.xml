@@ -8,9 +8,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/maktro_round"
+        android:icon="@mipmap/maktro"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/maktro_round"
+        android:roundIcon="@mipmap/maktro"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Welcome"></activity>
