@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="avss.io">
+    package="maktroshop.security">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
@@ -13,10 +13,10 @@
         android:roundIcon="@mipmap/maktro"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Welcome"></activity>
-        <activity android:name=".WelComeActivity" />
+        <activity android:name="maktroshop.security.Welcome"></activity>
+        <activity android:name="maktroshop.security.WelComeActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name="maktroshop.security.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

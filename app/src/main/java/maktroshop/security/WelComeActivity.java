@@ -1,10 +1,9 @@
-package avss.io;
+package maktroshop.security;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
 public class WelComeActivity extends AppCompatActivity {
 
