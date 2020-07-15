@@ -1,4 +1,4 @@
-package maktroshop.security;
+package maktroo.maktroshopsecurity;
 
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;

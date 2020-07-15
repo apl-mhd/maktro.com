@@ -1,4 +1,4 @@
-package maktroshop.security;
+package maktroo.maktroshopsecurity;
 
 import org.junit.Test;
 

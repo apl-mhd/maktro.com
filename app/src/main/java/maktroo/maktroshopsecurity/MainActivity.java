@@ -1,20 +1,18 @@
-package maktroshop.security;
+package maktroo.maktroshopsecurity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -91,14 +89,13 @@ MainFragment.onFragmentBtnSelected, SetPhoneNumber.saveNumber{
         if (menuItem.getItemId() ==R.id.helpLine){
 
 
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:01714178875"));
+            startActivity(intent);
 
-            Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:01714178875"));
+//            Intent callIntent = new Intent(Intent.ACTION_CALL);
+//            callIntent.setData(Uri.parse("tel:01714178875"));
 
-            if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
-                return false;
-            }
-            startActivity(callIntent);
         }
 
         if (menuItem.getItemId()==R.id.website){
@@ -122,7 +119,23 @@ MainFragment.onFragmentBtnSelected, SetPhoneNumber.saveNumber{
         if (menuItem.getItemId()==R.id.playstore){
 
 
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=PackageName")));
+            Uri uri = Uri.parse("market://details?id=" + this.getPackageName());
+
+            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+            // To count with Play market back stack, After pressing back button,
+            // to taken back to our application, we need to add following flags to intent.
+            goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+            try {
+                startActivity(goToMarket);
+            } catch (ActivityNotFoundException e) {
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://play.google.com/store/apps/details?id=" + this.getPackageName())));
+            }
+
+
+//            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=PackageName")));
         }
 
 

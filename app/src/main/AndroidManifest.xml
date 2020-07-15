@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="maktroshop.security">
+    package="maktroo.maktroshopsecurity">
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+<!--    <uses-permission android:name="android.permission.CALL_PHONE" />-->
+<!--    <uses-permission android:name="android.permission.SEND_SMS"/>-->
+
+<!--    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
+
+
+
 
 
     <application
@@ -13,10 +18,10 @@
         android:roundIcon="@mipmap/maktro"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="maktroshop.security.Welcome"></activity>
-        <activity android:name="maktroshop.security.WelComeActivity" />
+        <activity android:name="maktroo.maktroshopsecurity.Welcome"></activity>
+        <activity android:name="maktroo.maktroshopsecurity.WelComeActivity" />
         <activity
-            android:name="maktroshop.security.MainActivity"
+            android:name="maktroo.maktroshopsecurity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,4 +31,6 @@
         </activity>
     </application>
 
+
+    
 </manifest>
